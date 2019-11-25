@@ -2236,7 +2236,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
     </Task>
     <Task>
         <Key>ExCharsObj</Key>
-        <Priority>50046</Priority>
+        <Priority>50044</Priority>
         <Type>General</Type>
         <Command>[examine/exam/ex/x/look {at/in{side}/under}] %character%{{'}s} %objects%</Command>
         <Description>Examine Character's Object</Description>
@@ -2307,8 +2307,215 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <Actions>
             <SetTasks>Execute ExamineObjects (%objects%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-20 13:31:21</LastUpdated>
-        <Created>2018-09-20 12:32:03</Created>
+        <LastUpdated>2019-11-18 16:08:11</LastUpdated>
+        <Created>2019-11-18 16:08:11</Created>
+    </Task>
+    <Task>
+        <Key>ExamineMyObj</Key>
+        <Priority>50046</Priority>
+        <AutoFillPriority>9</AutoFillPriority>
+        <Type>General</Type>
+        <Command>[examine/exam/ex/x/look {at/in{side}/under}] my %objects%</Command>
+        <Description>Examine My Object</Description>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObjects Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine/exam/ex/x/look at/inside/under my.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine/exam/ex/x/look at/inside/under my.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %objects%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute ExCharsObj (%Player%|%objects%)</SetTasks>
+        </Actions>
+        <LastUpdated>2019-11-18 16:08:20</LastUpdated>
+        <Created>2019-11-18 16:08:20</Created>
+    </Task>
+    <Task>
+        <Key>ExamineObjOnObj</Key>
+        <Priority>50050</Priority>
+        <Type>General</Type>
+        <Command>[examine/exam/ex/x/look {at}] %objects% on %object%</Command>
+        <Description>Examine Object on Object</Description>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObjects Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %objects%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to look on top of.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to look on top of.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %object%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must BeOnObject ReferencedObject</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name does not have %objects%.Name(Indefinite) on it.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A#A#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute ExamineObjects (%objects%)</SetTasks>
+        </Actions>
+        <LastUpdated>2019-11-18 17:51:32</LastUpdated>
+        <Created>2019-11-18 17:51:32</Created>
+        <Aggregate>0</Aggregate>
+    </Task>
+    <Task>
+        <Key>ExamineObjInObj</Key>
+        <Priority>50052</Priority>
+        <Type>General</Type>
+        <Command>[examine/exam/ex/x/look {at}] %objects% in{side} %object%</Command>
+        <Description>Examine Object in Object</Description>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObjects Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to examine.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %objects%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to look on top of.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to look on top of.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %object%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects Must BeInsideObject ReferencedObject</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name does not contain %objects%.Name(Indefinite).</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A#A#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute ExamineObjects (%objects%)</SetTasks>
+        </Actions>
+        <LastUpdated>2019-11-18 17:59:55</LastUpdated>
+        <Created>2019-11-18 17:59:55</Created>
+        <Aggregate>0</Aggregate>
     </Task>
     <Task>
         <Key>StandOnObject</Key>
