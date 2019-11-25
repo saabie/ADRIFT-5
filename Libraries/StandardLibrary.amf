@@ -7417,14 +7417,23 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                     </Description>
                 </Message>
             </Restriction>
-            <BracketSequence>#A#</BracketSequence>
+            <Restriction>
+                <Property>CanTakeCha ReferencedCharacter MustNot Not_Now</Property>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%character%.WhyCharact</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#</BracketSequence>
         </Restrictions>
         <Actions>
             <MoveCharacter>Character ReferencedCharacter OntoCharacter %Player%</MoveCharacter>
             <SetProperty>ReferencedCharacter CharacterPosition Sitting</SetProperty>
         </Actions>
-        <LastUpdated>2018-10-01 13:27:17</LastUpdated>
-        <Created>2018-09-23 17:47:34</Created>
+        <LastUpdated>2019-11-20 14:53:45</LastUpdated>
+        <Created>2018-10-01 13:27:17</Created>
     </Task>
     <Character>
         <Key>Player</Key>
