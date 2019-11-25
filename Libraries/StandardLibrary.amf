@@ -3460,6 +3460,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>say %text% to %character%</Command>
+        <Command>say {to} %character%[, /: /; /"/']%text%{"/'}</Command>
         <Description>Say something to character</Description>
         <Repeatable>1</Repeatable>
         <Restrictions>
@@ -3486,7 +3487,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Actions>
             <Conversation>Say '%text%' To ReferencedCharacter</Conversation>
         </Actions>
-        <LastUpdated>2011-08-08 12:06:37</LastUpdated>
+        <LastUpdated>2019-11-20 15:16:27</LastUpdated>
         <Created>2011-08-08 12:06:37</Created>
     </Task>
     <Task>
