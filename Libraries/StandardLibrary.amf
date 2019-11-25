@@ -284,12 +284,13 @@
         <Member>WhenGetCha</Member>
         <Member>CanTakeCha</Member>
         <Member>TakingChar</Member>
+        <Member>WhyCharact</Member>
         <Height>446</Height>
         <Width>306</Width>
         <X>512</X>
         <Y>71</Y>
         <ShowPriority>1</ShowPriority>
-        <LastUpdated>2018-09-23 13:23:51</LastUpdated>
+        <LastUpdated>2019-11-25 13:23:51</LastUpdated>
         <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
@@ -1258,9 +1259,22 @@
         <State>Sit_On_Shoulder</State>
         <State>Sit_On_Head</State>
         <State>Display_This</State>
+        <State>Not_Now</State>
         <Tooltip>The character allows themselves to be picked-up.</Tooltip>
-        <LastUpdated>2018-09-23 18:05:34</LastUpdated>
-        <Created>2018-09-23 17:38:40</Created>
+        <LastUpdated>2019-11-20 14:52:28</LastUpdated>
+        <Created>2018-09-23 18:05:34</Created>
+    </Property>
+    <Property>
+        <Key>WhyCharact</Key>
+        <Description>Why character can't be picked up</Description>
+        <Mandatory>1</Mandatory>
+        <PropertyOf>Characters</PropertyOf>
+        <Type>Text</Type>
+        <Tooltip>A specific reason I can't be picked-up (at the moment)</Tooltip>
+        <DependentKey>CanTakeCha</DependentKey>
+        <DependentValue>Not_Now</DependentValue>
+        <LastUpdated>2019-11-18 17:07:28</LastUpdated>
+        <Created>2019-11-18 17:07:28</Created>
     </Property>
     <Task>
         <Key>PutObjectsOnOthers</Key>
