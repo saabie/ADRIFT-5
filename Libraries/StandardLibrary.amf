@@ -2774,7 +2774,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
         <Priority>50048</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
-        <Command>ask about %text%</Command>
+        <Command>ask {about} %text%{?}</Command>
         <Description>Ask about subject</Description>
         <Repeatable>1</Repeatable>
         <PreventOverriding>1</PreventOverriding>
@@ -2793,7 +2793,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
         <Actions>
             <SetTasks>Execute AskCharacter (%convcharacter%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-08-31 23:05:47</LastUpdated>
+        <LastUpdated>2019-11-25 23:05:47</LastUpdated>
         <Created>2011-06-04 17:05:47</Created>
     </Task>
     <Task>
@@ -3361,7 +3361,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Priority>50019</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
-        <Command>ask %character% about %text%</Command>
+        <Command>ask %character% {about} %text%{?}</Command>
         <Description>Ask character about subject</Description>
         <Repeatable>1</Repeatable>
         <Restrictions>
@@ -3388,7 +3388,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Actions>
             <Conversation>Ask ReferencedCharacter About '%text%'</Conversation>
         </Actions>
-        <LastUpdated>2011-06-04 17:05:42</LastUpdated>
+        <LastUpdated>2019-11-25 17:05:42</LastUpdated>
         <Created>2011-06-04 17:05:42</Created>
     </Task>
     <Task>
@@ -4566,7 +4566,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Priority>50021</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
-        <Command>tell %character% about %text%</Command>
+        <Command>tell %character% {about} %text%</Command>
         <Description>Tell character about subject</Description>
         <Repeatable>1</Repeatable>
         <Restrictions>
@@ -4593,7 +4593,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Actions>
             <Conversation>Tell ReferencedCharacter About '%text%'</Conversation>
         </Actions>
-        <LastUpdated>2011-06-04 17:05:55</LastUpdated>
+        <LastUpdated>2019-11-25 17:05:55</LastUpdated>
         <Created>2011-06-04 17:05:55</Created>
     </Task>
     <Task>
@@ -4601,7 +4601,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Priority>50001</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
-        <Command>tell about %text%</Command>
+        <Command>tell {about} %text%</Command>
         <Description>Tell about subject</Description>
         <Repeatable>1</Repeatable>
         <PreventOverriding>1</PreventOverriding>
@@ -4620,7 +4620,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Actions>
             <SetTasks>Execute TellCharacter (%convcharacter%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-23 11:54:29</LastUpdated>
+        <LastUpdated>2019-11-25 11:54:29</LastUpdated>
         <Created>2018-09-23 11:57:55</Created>
     </Task>
     <Task>
@@ -4628,7 +4628,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Priority>50000</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
-        <Command>tell about %text%</Command>
+        <Command>tell {about} %text%</Command>
         <Description>Tell about (Lazy)</Description>
         <CompletionMessage>
             <Description>
@@ -4683,7 +4683,7 @@ This task runs the Tell Something to Character task, passing %AloneWithChar% key
         <Actions>
             <SetTasks>Execute TellCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-23 11:57:55</LastUpdated>
+        <LastUpdated>2019-11-25 11:57:55</LastUpdated>
         <Created>2018-09-23 11:57:55</Created>
     </Task>    
     <Task>
@@ -5193,7 +5193,7 @@ This task runs the Say Something to Character task, passing %AloneWithChar% key 
         <Key>AskAboutLazy</Key>
         <Priority>50018</Priority>
         <Type>General</Type>
-        <Command>ask about %text%</Command>
+        <Command>ask {about} %text%{?}</Command>
         <Description>Ask about (lazy)</Description>
         <CompletionMessage>
             <Description>
@@ -5247,7 +5247,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
         <Actions>
             <SetTasks>Execute AskCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-23 11:36:06</LastUpdated>
+        <LastUpdated>2019-11-25 11:36:06</LastUpdated>
         <Created>2011-08-10 11:25:35</Created>
     </Task>
     <Task>
