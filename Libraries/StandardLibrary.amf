@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2019-12-01 15:21:13</LastUpdated>
+    <LastUpdated>2019-12-03 14:00:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -10,11 +10,12 @@
     <Folder>
         <Key>ROOT</Key>
         <Name>Desktop</Name>
+        <Member>LibraryFolder</Member>
         <Member>Locations</Member>
         <Member>Objects</Member>
         <Member>Tasks</Member>
-        <Member>Events</Member>
         <Member>Characters</Member>
+        <Member>Events</Member>
         <Member>Groups</Member>
         <Member>Variables</Member>
         <Member>Text Overrides</Member>
@@ -22,68 +23,70 @@
         <Member>Properties</Member>
         <Member>Synonyms</Member>
         <Member>User Functions</Member>
-        <Member>LibraryFolder</Member>
-        <X>-100</X>
-        <Y>-100</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>344</Height>
+        <Width>300</Width>
+        <X>176</X>
+        <Y>152</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Locations</Key>
         <Name>Locations</Name>
-        <Height>270</Height>
-        <Width>292</Width>
+        <Height>450</Height>
+        <Width>183</Width>
         <Visible>1</Visible>
         <X>0</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Y>3</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Objects</Key>
         <Name>Objects</Name>
-        <Height>270</Height>
-        <Width>292</Width>
+        <Height>450</Height>
+        <Width>183</Width>
         <Visible>1</Visible>
-        <X>293</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <X>183</X>
+        <Y>3</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Tasks</Key>
         <Name>Tasks</Name>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
+        <Height>450</Height>
+        <Width>183</Width>
         <Visible>1</Visible>
-        <X>586</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <X>366</X>
+        <Y>3</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Events</Key>
         <Name>Events</Name>
-        <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>0</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>450</Height>
+        <Width>187</Width>
+        <Visible>1</Visible>
+        <X>732</X>
+        <Y>3</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Characters</Key>
         <Name>Characters</Name>
         <Member>Player</Member>
-        <Height>270</Height>
-        <Width>292</Width>
+        <Expanded>0</Expanded>
+        <Height>450</Height>
+        <Width>183</Width>
         <Visible>1</Visible>
-        <X>878</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <X>549</X>
+        <Y>3</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Groups</Key>
@@ -91,13 +94,12 @@
         <Member>AllLocations</Member>
         <Member>DarkLocations</Member>
         <Member>LightSources</Member>
-        <Height>270</Height>
-        <Width>292</Width>
-        <Visible>1</Visible>
-        <X>1169</X>
-        <Y>0</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>319</Height>
+        <Width>189</Width>
+        <X>89</X>
+        <Y>124</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Variables</Key>
@@ -105,70 +107,66 @@
         <Member>Score</Member>
         <Member>MaxScore</Member>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>44</X>
-        <Y>58</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>437</Height>
+        <Width>181</Width>
+        <X>633</X>
+        <Y>54</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Text Overrides</Key>
         <Name>Text Overrides</Name>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>66</X>
-        <Y>87</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>547</Height>
+        <Width>184</Width>
+        <X>210</X>
+        <Y>102</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Hints</Key>
         <Name>Hints</Name>
-        <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>88</X>
-        <Y>116</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>548</Height>
+        <Width>182</Width>
+        <X>394</X>
+        <Y>101</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Properties</Key>
         <Name>Properties</Name>
-        <Member>_ObjectArticle</Member>
-        <Member>_ObjectPrefix</Member>
-        <Member>_ObjectNoun</Member>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>110</X>
-        <Y>145</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>236</Height>
+        <Width>389</Width>
+        <X>544</X>
+        <Y>222</Y>
+        <LastUpdated>2010-08-13 22:23:49</LastUpdated>
+        <Created>2010-08-13 22:23:49</Created>
     </Folder>
     <Folder>
         <Key>Synonyms</Key>
         <Name>Synonyms</Name>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>132</X>
-        <Y>174</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>547</Height>
+        <Width>184</Width>
+        <X>210</X>
+        <Y>102</Y>
+        <LastUpdated>2013-08-26 11:58:00</LastUpdated>
+        <Created>2013-08-26 11:58:00</Created>
     </Folder>
     <Folder>
         <Key>User Functions</Key>
         <Name>User Functions</Name>
         <Expanded>0</Expanded>
-        <Height>270</Height>
-        <Width>292</Width>
-        <X>-100</X>
-        <Y>-100</Y>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:20:52</Created>
+        <Height>547</Height>
+        <Width>184</Width>
+        <X>210</X>
+        <Y>102</Y>
+        <LastUpdated>2013-08-26 11:58:00</LastUpdated>
+        <Created>2013-08-26 11:58:00</Created>
     </Folder>
     <Folder>
         <Key>LibraryFolder</Key>
@@ -181,17 +179,18 @@
         <Member>Folder7</Member>
         <Member>Folder8</Member>
         <Member>Folder9</Member>
-        <Member>Folder10</Member>
         <Member>Folder11</Member>
         <Member>Folder12</Member>
         <Member>Folder14</Member>
         <Member>Folder1</Member>
+        <Member>Folder10</Member>
+        <Expanded>0</Expanded>
         <Height>396</Height>
         <Width>267</Width>
         <X>100</X>
         <Y>100</Y>
-        <LastUpdated>2018-09-23 16:24:02</LastUpdated>
-        <Created>2018-09-23 16:24:02</Created>
+        <LastUpdated>2010-08-13 22:24:02</LastUpdated>
+        <Created>2010-08-13 22:24:02</Created>
     </Folder>
     <Folder>
         <Key>Folder2</Key>
@@ -226,7 +225,7 @@
         <Y>0</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-23 17:53:31</LastUpdated>
-        <Created>2018-09-23 17:53:31</Created>
+        <Created>2010-08-13 22:24:02</Created>
     </Folder>
     <Folder>
         <Key>Folder3</Key>
@@ -294,7 +293,7 @@
         <Y>71</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2019-11-25 13:23:51</LastUpdated>
-        <Created>2019-11-25 13:23:51</Created>
+        <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
         <Key>Folder5</Key>
@@ -324,7 +323,7 @@
         <Y>0</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-20 17:22:51</LastUpdated>
-        <Created>2018-09-20 17:22:51</Created>
+        <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
         <Key>Folder6</Key>
@@ -358,7 +357,7 @@
         <Y>321</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-23 22:22:51</LastUpdated>
-        <Created>2018-09-23 22:22:51</Created>
+        <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
         <Key>Folder8</Key>
@@ -395,16 +394,16 @@
         <Y>271</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-23 22:22:51</LastUpdated>
-        <Created>2018-09-23 22:22:51</Created>
+        <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
         <Key>Folder9</Key>
         <Name>Look and Examine</Name>
+        <Member>ExamineCharacter</Member>
+        <Member>ExamineObjects</Member>
         <Member>ExamineObjInObj</Member>
         <Member>ExamineObjOnObj</Member>
         <Member>ExamineMyObj</Member>
-        <Member>ExamineCharacter</Member>
-        <Member>ExamineObjects</Member>
         <Member>ExCharsObj</Member>
         <Member>Look</Member>
         <Member>ReadObjects</Member>
@@ -414,13 +413,14 @@
         <Member>ExplicitlyList</Member>
         <Member>LongLocationDescription</Member>
         <Member>ShortLocationDescription</Member>
-        <Height>354</Height>
-        <Width>450</Width>
-        <X>489</X>
-        <Y>-3</Y>
+        <Expanded>0</Expanded>
+        <Height>321</Height>
+        <Width>244</Width>
+        <X>587</X>
+        <Y>39</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-20 22:22:51</LastUpdated>
-        <Created>2018-09-20 22:22:51</Created>
+        <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
         <Key>Folder10</Key>
@@ -493,13 +493,14 @@
         <Member>StandBeforeMoving</Member>
         <Member>PrevLoc</Member>
         <Member>MovePlayer</Member>
-        <Height>432</Height>
+        <Expanded>0</Expanded>
+        <Height>387</Height>
         <Width>415</Width>
         <X>338</X>
-        <Y>0</Y>
+        <Y>84</Y>
         <ShowPriority>1</ShowPriority>
         <LastUpdated>2018-09-20 14:33:37</LastUpdated>
-        <Created>2018-09-20 14:33:37</Created>
+        <Created>2010-10-09 12:03:37</Created>
     </Folder>
     <Folder>
         <Key>Folder1</Key>
@@ -575,7 +576,7 @@
         <DependentValue>True</DependentValue>
         <RestrictProperty>Size</RestrictProperty>
         <LastUpdated>2018-09-19 10:28:48</LastUpdated>
-        <Created>2018-09-19 10:28:48</Created>
+        <Created>2011-12-16 09:12:00</Created>
     </Property>
     <Property>
         <Key>OnWhat</Key>
@@ -647,7 +648,7 @@
         <DependentKey>StaticOrDynamic</DependentKey>
         <DependentValue>Static</DependentValue>
         <LastUpdated>2018-09-23 15:19:35</LastUpdated>
-        <Created>2018-09-23 15:19:35</Created>
+        <Created>2010-06-06 15:19:35</Created>
     </Property>
     <Property>
         <Key>Known</Key>
@@ -892,7 +893,7 @@
         <DependentValue>True</DependentValue>
         <RestrictProperty>Size</RestrictProperty>
         <LastUpdated>2018-09-19 10:28:47</LastUpdated>
-        <Created>2018-09-19 10:28:47</Created>
+        <Created>2010-06-06 15:19:35</Created>
     </Property>
     <Property>
         <Key>CharEnters</Key>
@@ -1003,7 +1004,7 @@
         <DependentKey>StaticOrDynamic</DependentKey>
         <DependentValue>Dynamic</DependentValue>
         <LastUpdated>2018-09-23 15:19:35</LastUpdated>
-        <Created>2018-09-23 15:19:35</Created>
+        <Created>2010-06-06 15:19:35</Created>
     </Property>
     <Property>
         <Key>ShowEnterExit</Key>
@@ -1280,30 +1281,6 @@
         <LastUpdated>2019-11-18 17:07:28</LastUpdated>
         <Created>2019-11-18 17:07:28</Created>
     </Property>
-    <Property>
-        <Key>_ObjectArticle</Key>
-        <Description>Object Article</Description>
-        <PropertyOf>Objects</PropertyOf>
-        <Type>Text</Type>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:18:21</Created>
-    </Property>
-    <Property>
-        <Key>_ObjectPrefix</Key>
-        <Description>Object Prefix</Description>
-        <PropertyOf>Objects</PropertyOf>
-        <Type>Text</Type>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:18:21</Created>
-    </Property>
-    <Property>
-        <Key>_ObjectNoun</Key>
-        <Description>Object Name</Description>
-        <PropertyOf>Objects</PropertyOf>
-        <Type>Text</Type>
-        <LastUpdated>2019-12-01 15:21:13</LastUpdated>
-        <Created>2019-12-01 15:18:21</Created>
-    </Property>
     <Task>
         <Key>PutObjectsOnOthers</Key>
         <Priority>49998</Priority>
@@ -1425,7 +1402,7 @@
             <MoveObject>Object ReferencedObjects OntoObject ReferencedObject2</MoveObject>
         </Actions>
         <LastUpdated>2018-09-30 11:06:51</LastUpdated>
-        <Created>2018-09-30 11:06:51</Created>
+        <Created>2015-10-29 23:10:49</Created>
     </Task>
     <Task>
         <Key>LieOnFloor</Key>
@@ -1590,7 +1567,7 @@
             <MoveObject>Object ReferencedObjects ToCarriedBy %Player%</MoveObject>
         </Actions>
         <LastUpdated>2018-09-18 14:45:00</LastUpdated>
-        <Created>2018-09-18 14:45:00</Created>
+        <Created>2013-08-26 11:58:00</Created>
     </Task>
     <Task>
         <Key>DrinkObject</Key>
@@ -1720,7 +1697,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <SetTasks>Execute StandOnObject (%ParentOf[%Player%]%)</SetTasks>
         </Actions>
         <LastUpdated>2018-09-09 16:25:07</LastUpdated>
-        <Created>2018-09-09 16:25:07</Created>
+        <Created>2012-08-06 19:58:15</Created>
     </Task>
     <Task>
         <Key>GiveObjectToChar</Key>
@@ -1789,7 +1766,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <BracketSequence>#A#A#A#A(#O#)</BracketSequence>
         </Restrictions>
         <LastUpdated>2018-09-14 14:31:49</LastUpdated>
-        <Created>2018-09-14 14:31:49</Created>
+        <Created>2012-09-16 14:31:49</Created>
     </Task>
     <Task>
         <Key>TakeObjectsFromOthers</Key>
@@ -2048,7 +2025,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <MoveObject>Object ReferencedObjects ToCarriedBy %Player%</MoveObject>
         </Actions>
         <LastUpdated>2018-09-24 11:40:35</LastUpdated>
-        <Created>2018-09-24 11:40:35</Created>
+        <Created>2013-08-26 11:58:00</Created>
     </Task>
     <Task>
         <Key>OpenObjects</Key>
@@ -2162,7 +2139,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <SetProperty>ReferencedObject OpenStatus Open</SetProperty>
         </Actions>
         <LastUpdated>2018-09-23 15:27:17</LastUpdated>
-        <Created>2018-09-23 15:27:17</Created>
+        <Created>2011-08-07 18:15:59</Created>
     </Task>
     <Task>
         <Key>ExamineObjects</Key>
@@ -3418,7 +3395,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
             <Conversation>Ask ReferencedCharacter About '%text%'</Conversation>
         </Actions>
         <LastUpdated>2019-11-25 17:05:42</LastUpdated>
-        <Created>2019-11-25 17:05:42</Created>
+        <Created>2011-06-04 17:05:42</Created>
     </Task>
     <Task>
         <Key>DropObjects</Key>
@@ -3517,7 +3494,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
             <Conversation>Say '%text%' To ReferencedCharacter</Conversation>
         </Actions>
         <LastUpdated>2019-11-20 15:16:27</LastUpdated>
-        <Created>2019-11-20 15:16:27</Created>
+        <Created>2011-08-08 12:06:37</Created>
     </Task>
     <Task>
         <Key>UnlockObjectLazy</Key>
@@ -4623,7 +4600,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
             <Conversation>Tell ReferencedCharacter About '%text%'</Conversation>
         </Actions>
         <LastUpdated>2019-11-25 17:05:55</LastUpdated>
-        <Created>2019-11-25 17:05:55</Created>
+        <Created>2011-06-04 17:05:55</Created>
     </Task>
     <Task>
         <Key>Tell</Key>
@@ -5277,7 +5254,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <SetTasks>Execute AskCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
         <LastUpdated>2019-11-25 11:36:06</LastUpdated>
-        <Created>2019-11-25 11:36:06</Created>
+        <Created>2011-08-10 11:25:35</Created>
     </Task>
     <Task>
         <Key>LockObWithKey</Key>
