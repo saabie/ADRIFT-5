@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2019-12-03 14:00:00</LastUpdated>
+    <LastUpdated>2019-12-10 18:00:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -2707,7 +2707,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>PlayerMovement</Key>
-        <Priority>50026</Priority>
+        <Priority>50063</Priority>
         <AutoFillPriority>1</AutoFillPriority>
         <Type>General</Type>
         <Command>{[go/walk/move/run] {to {the}}} %direction%</Command>
@@ -2730,7 +2730,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
             <SetTasks>Execute ExitBeforeMoving (%Player%.Parent)</SetTasks>
             <SetTasks>Execute MovePlayer (%direction%)</SetTasks>
         </Actions>
-        <LastUpdated>2019-12-01 15:16:50</LastUpdated>
+        <LastUpdated>2019-12-10 15:16:50</LastUpdated>
         <Created>2018-09-20 16:37:51</Created>
     </Task>
     <Task>
