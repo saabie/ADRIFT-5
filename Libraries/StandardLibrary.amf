@@ -1654,7 +1654,7 @@
     </Task>
     <Task>
         <Key>Stand</Key>
-        <Priority>50023</Priority>
+        <Priority>50061</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
         <Command>stand {up/on}</Command>
@@ -1696,7 +1696,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <Actions>
             <SetTasks>Execute StandOnObject (%ParentOf[%Player%]%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-09 16:25:07</LastUpdated>
+        <LastUpdated>2019-12-10 12:25:07</LastUpdated>
         <Created>2012-08-06 19:58:15</Created>
     </Task>
     <Task>
@@ -3019,7 +3019,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>MoveOffCurrentObject</Key>
-        <Priority>50013</Priority>
+        <Priority>50062</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
         <Command>[stand{ up/ down/ off}/[get/move] [up/down/off]]{ [on/to/onto] {the} [floor/ground]}</Command>
@@ -3031,7 +3031,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>&lt;c&gt;(Leave %TheObject[%ParentOf[%Player%]%]%)&lt;/c&gt;&lt;!--
+                <Text>&lt;c&gt;(from %TheObject[%ParentOf[%Player%]%]%)&lt;/c&gt;&lt;!--
 
 This task executes the 'Leave Object' task, giving it the parent of the player as a parameter
 
@@ -3053,7 +3053,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <Actions>
             <SetTasks>Execute MoveOffObject (%ParentOf[%Player%]%)</SetTasks>
         </Actions>
-        <LastUpdated>2018-09-20 17:34:37</LastUpdated>
+        <LastUpdated>2019-12-10 12:34:37</LastUpdated>
         <Created>2018-09-20 17:34:37</Created>
     </Task>
     <Task>
@@ -3562,7 +3562,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
     </Task>
     <Task>
         <Key>StandOnFloor</Key>
-        <Priority>50029</Priority>
+        <Priority>50060</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
         <Command>stand {up/down}</Command>
@@ -3593,7 +3593,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Actions>
             <SetProperty>%Player% CharacterPosition Standing</SetProperty>
         </Actions>
-        <LastUpdated>2011-08-07 18:14:00</LastUpdated>
+        <LastUpdated>2019-12-10 12:14:00</LastUpdated>
         <Created>2011-08-07 18:14:00</Created>
     </Task>
     <Task>
