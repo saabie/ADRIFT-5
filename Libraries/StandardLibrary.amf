@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2019-12-10 18:00:00</LastUpdated>
+    <LastUpdated>2019-12-12 14:49:34</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -301,12 +301,15 @@
         <Member>SitOnFloor</Member>
         <Member>SitOnObject</Member>
         <Member>Sit</Member>
+        <Member>SitInObject</Member>
         <Member>StandOnFloor</Member>
         <Member>StandOnObject</Member>
         <Member>Stand</Member>
+        <Member>StandInObject</Member>
         <Member>LieOnFloor</Member>
         <Member>Lie</Member>
         <Member>LieOnObject</Member>
+        <Member>LieInObject</Member>        
         <Member>MoveOffObject</Member>
         <Member>MoveOffCurrentObject</Member>
         <Member>MoveOutObject</Member>
@@ -317,6 +320,10 @@
         <Member>StandOnObj1</Member>
         <Member>CheckExit</Member>
         <Member>ExitBeforeMoving</Member>
+        <Member>GoOntoObject</Member>
+        <Member>GoSitOnObject</Member>
+        <Member>GoStandOnObject</Member>
+        <Member>GoLieOnObjec1</Member>        
         <Height>321</Height>
         <Width>244</Width>
         <X>244</X>
@@ -2538,11 +2545,10 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
     </Task>
     <Task>
         <Key>StandOnObject</Key>
-        <Priority>50000</Priority>
+        <Priority>50063</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>stand {up/down} [in/on] %object%</Command>
-        <Command>get on %object%</Command>
+        <Command>stand {up/down} on %object%</Command>
         <Description>Stand On Object</Description>
         <CompletionMessage>
             <Description>
@@ -2613,7 +2619,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
             <MoveCharacter>Character %Player% ToStandingOn ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2018-09-14 15:54:01</LastUpdated>
+        <LastUpdated>2019-12-12 14:29:51</LastUpdated>
         <Created>2018-09-14 15:54:01</Created>
     </Task>
     <Task>
@@ -3092,11 +3098,10 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
     </Task>
     <Task>
         <Key>SitOnObject</Key>
-        <Priority>50002</Priority>
+        <Priority>50061</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>sit {up/down} [in/on] %object%</Command>
-        <Command>get on %object%</Command>
+        <Command>sit {up/down} on %object%</Command>
         <Description>Sit On Object</Description>
         <CompletionMessage>
             <Description>
@@ -3167,8 +3172,8 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
             <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
             <MoveCharacter>Character %Player% ToSittingOn ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2018-09-14 15:53:23</LastUpdated>
-        <Created>2011-08-07 18:13:42</Created>
+        <LastUpdated>2019-12-12 14:30:10</LastUpdated>
+        <Created>2018-09-14 15:53:23</Created>
     </Task>
     <Task>
         <Key>MoveInObject</Key>
@@ -4348,11 +4353,10 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>LieOnObject</Key>
-        <Priority>50006</Priority>
+        <Priority>50065</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>[lie/lay] {up/down} [in/on] %object%</Command>
-        <Command>get on %object%</Command>
+        <Command>[lie/lay] {up/down} on %object%</Command>
         <Description>Lie On Object</Description>
         <CompletionMessage>
             <Description>
@@ -4423,8 +4427,8 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
             <SetTasks>Execute CheckExit (%Player%Parent|%object%)</SetTasks>
             <MoveCharacter>Character %Player% ToLyingOn ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2018-09-14 15:54:24</LastUpdated>
-        <Created>2011-08-07 18:14:33</Created>
+        <LastUpdated>2019-12-12 14:30:03</LastUpdated>
+        <Created>2018-09-14 15:54:24</Created>
     </Task>
     <Task>
         <Key>CheckExit</Key>
@@ -7435,6 +7439,504 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
         </Actions>
         <LastUpdated>2019-11-20 14:53:45</LastUpdated>
         <Created>2019-11-20 14:53:45</Created>
+    </Task>
+    <Task>
+        <Key>SitInObject</Key>
+        <Priority>50055</Priority>
+        <AutoFillPriority>4</AutoFillPriority>
+        <Type>General</Type>
+        <Command>sit {up/down} in{to/side} %object%</Command>
+        <Description>Sit in Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% sit[//s] inside %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to sit upon.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to sit upon.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %TheObject[%object%]%.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty CharactersCanGoInOb</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot HaveProperty Openable</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeInState Open</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot BeHeldByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't sit on something that %CharacterName% [am/are/is] holding!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeInsideObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already sitting in %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Property>CharacterPosition %Player% MustNot Sitting</Property>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already sitting in %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A(#O#)A#A(#O#)</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
+            <SetProperty>%Player% CharacterPosition Sitting</SetProperty>
+        </Actions>
+        <LastUpdated>2019-12-12 13:55:41</LastUpdated>
+        <Created>2018-09-14 15:53:23</Created>
+    </Task>
+    <Task>
+        <Key>StandInObject</Key>
+        <Priority>50057</Priority>
+        <AutoFillPriority>4</AutoFillPriority>
+        <Type>General</Type>
+        <Command>stand {up/down} in{to/side} %object%</Command>
+        <Description>Stand in Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% stand[//s] inside %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to stand on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to stand on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %TheObject[%object%]%.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty CharactersCanGoInOb</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot HaveProperty Openable</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeInState Open</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot BeHeldByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't stand on something that you're holding!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeInsideObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already standing in %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Property>CharacterPosition %Player% MustNot Standing</Property>
+            </Restriction>
+            <BracketSequence>#A#A#A#A(#O#)A#A(#O#)</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
+            <SetProperty>%Player% CharacterPosition Standing</SetProperty>
+        </Actions>
+        <LastUpdated>2019-12-12 13:56:00</LastUpdated>
+        <Created>2018-09-14 15:54:01</Created>
+    </Task>
+    <Task>
+        <Key>LieInObject</Key>
+        <Priority>50059</Priority>
+        <AutoFillPriority>4</AutoFillPriority>
+        <Type>General</Type>
+        <Command>[lie/lay] {up/down} in{to/side} %object%</Command>
+        <Description>Lie in Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% lie[//s] down inside %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to lie on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to lie on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %TheObject[%object%]%.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty CharactersCanGoInOb</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot HaveProperty Openable</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeInState Open</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%object%.Name is not open!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot BeHeldByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't lie on something that %CharacterName% [am/are/is] holding!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeInsideObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already lying in %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Property>CharacterPosition %Player% MustNot Lying</Property>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already lying in %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A(#O#)A#A(#O#)</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
+            <SetProperty>%Player% CharacterPosition Lying</SetProperty>
+        </Actions>
+        <LastUpdated>2019-12-12 13:55:24</LastUpdated>
+        <Created>2018-09-14 15:54:24</Created>
+    </Task>
+    <Task>
+        <Key>GoOntoObject</Key>
+        <Priority>50067</Priority>
+        <AutoFillPriority>4</AutoFillPriority>
+        <Type>General</Type>
+        <Command>[get/go/climb] on{to} %object%</Command>
+        <Description>Get Onto Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% cannot get onto %TheObject[%object%]%!</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must Exist </Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to get on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must HaveBeenSeenByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which object you are trying to get on.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %TheObject[%object%]%.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject MustNot BeHeldByCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't get on something that %CharacterName% [am/are/is] holding!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#</BracketSequence>
+        </Restrictions>
+        <LastUpdated>2019-12-12 14:36:30</LastUpdated>
+        <Created>2018-09-14 15:54:24</Created>
+    </Task>
+    <Task>
+        <Key>GoSitOnObject</Key>
+        <Priority>50069</Priority>
+        <Type>Specific</Type>
+        <GeneralTask>GoOntoObject</GeneralTask>
+        <Specific>
+            <Type>Object</Type>
+            <Multiple>0</Multiple>
+            <Key />
+        </Specific>
+        <Description>Sit On Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% sit[//s] on %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <SpecificOverrideType>Override</SpecificOverrideType>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty Sittable</Object>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeSittingOnObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already sitting on %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% ToSittingOn ReferencedObject</MoveCharacter>
+        </Actions>
+        <LastUpdated>2019-12-12 14:36:11</LastUpdated>
+        <Created>2018-09-14 15:53:23</Created>
+    </Task>
+    <Task>
+        <Key>GoStandOnObject</Key>
+        <Priority>50071</Priority>
+        <Type>Specific</Type>
+        <GeneralTask>GoOntoObject</GeneralTask>
+        <Specific>
+            <Type>Object</Type>
+            <Multiple>0</Multiple>
+            <Key />
+        </Specific>
+        <Description>Stand On Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% stand[//s] on %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <SpecificOverrideType>Override</SpecificOverrideType>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty Standable</Object>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeStandingOnObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already standing on %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% ToStandingOn ReferencedObject</MoveCharacter>
+        </Actions>
+        <LastUpdated>2019-12-12 14:35:44</LastUpdated>
+        <Created>2018-09-14 15:54:01</Created>
+    </Task>
+    <Task>
+        <Key>GoLieOnObjec1</Key>
+        <Priority>50073</Priority>
+        <Type>Specific</Type>
+        <GeneralTask>GoOntoObject</GeneralTask>
+        <Specific>
+            <Type>Object</Type>
+            <Multiple>0</Multiple>
+            <Key />
+        </Specific>
+        <Description>Lie On Object</Description>
+        <CompletionMessage>
+            <Description>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% lie[//s] on %TheObject[%object%]%.</Text>
+            </Description>
+        </CompletionMessage>
+        <Repeatable>1</Repeatable>
+        <SpecificOverrideType>Override</SpecificOverrideType>
+        <MessageBeforeOrAfter>After</MessageBeforeOrAfter>
+        <Restrictions>
+            <Restriction>
+                <Object>ReferencedObject Must HaveProperty Lieable</Object>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% MustNot BeLyingOnObject ReferencedObject</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% [am/are/is] already lying on %TheObject[%object%]%!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#</BracketSequence>
+        </Restrictions>
+        <Actions>
+            <SetTasks>Execute CheckExit (%Player%Parent|%object%)</SetTasks>
+            <MoveCharacter>Character %Player% ToLyingOn ReferencedObject</MoveCharacter>
+        </Actions>
+        <LastUpdated>2019-12-12 14:36:20</LastUpdated>
+        <Created>2018-09-14 15:54:24</Created>
     </Task>
     <Character>
         <Key>Player</Key>
