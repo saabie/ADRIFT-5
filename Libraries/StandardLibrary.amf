@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2019-12-12 14:49:34</LastUpdated>
+    <LastUpdated>2019-12-17 14:49:34</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -323,7 +323,7 @@
         <Member>GoOntoObject</Member>
         <Member>GoSitOnObject</Member>
         <Member>GoStandOnObject</Member>
-        <Member>GoLieOnObjec1</Member>        
+        <Member>GoLieOnObject</Member>        
         <Height>321</Height>
         <Width>244</Width>
         <X>244</X>
@@ -1424,6 +1424,17 @@
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
                 <Text>%CharacterName% lie[//s] down.</Text>
             </Description>
+            <Description>
+                <Restrictions>
+                    <Restriction>
+                        <Character>%Player% Must BeInsideObject AnyObject</Character>
+                    </Restriction>
+                    <BracketSequence>#</BracketSequence>
+                </Restrictions>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% lie[//s] down inside %Player%.CharInsideWhat.Name.</Text>
+                <TabLabel>Inside Object</TabLabel>
+            </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
         <PreventOverriding>1</PreventOverriding>
@@ -1445,7 +1456,7 @@
         <Actions>
             <SetProperty>%Player% CharacterPosition Lying</SetProperty>
         </Actions>
-        <LastUpdated>2011-08-07 18:14:21</LastUpdated>
+        <LastUpdated>2019-12-17 13:55:31</LastUpdated>
         <Created>2011-08-07 18:14:21</Created>
     </Task>
     <Task>
@@ -2548,12 +2559,12 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <Priority>50063</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>stand {up/down} on %object%</Command>
+        <Command>stand {up/down} [on/in] %object%</Command>
         <Description>Stand On Object</Description>
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% stand[//s] [on/in] %TheObject[%object%]%.</Text>
+                <Text>%CharacterName% stand[//s] on %TheObject[%object%]%.</Text>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -2619,7 +2630,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
             <MoveCharacter>Character %Player% ToStandingOn ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2019-12-12 14:29:51</LastUpdated>
+        <LastUpdated>2019-12-17 14:21:22</LastUpdated>
         <Created>2011-08-07 18:14:51</Created>
     </Task>
     <Task>
@@ -3101,12 +3112,12 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <Priority>50061</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>sit {up/down} on %object%</Command>
+        <Command>sit {up/down} [on/in] %object%</Command>
         <Description>Sit On Object</Description>
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% sit[//s] [on/in] %TheObject[%object%]%.</Text>
+                <Text>%CharacterName% sit[//s] on %TheObject[%object%]%.</Text>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -3172,7 +3183,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
             <SetTasks>Execute CheckExit (%Player%.Parent|%object%)</SetTasks>
             <MoveCharacter>Character %Player% ToSittingOn ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2019-12-12 14:30:10</LastUpdated>
+        <LastUpdated>2019-12-17 14:21:33</LastUpdated>
         <Created>2011-08-07 18:13:42</Created>
     </Task>
     <Task>
@@ -3187,6 +3198,17 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
                 <Text>%CharacterName% step[//s] inside %TheObject[%object%]%.</Text>
+            </Description>
+            <Description>
+                <Restrictions>
+                    <Restriction>
+                        <Property>CharacterPosition %Player% MustNot Standing</Property>
+                    </Restriction>
+                    <BracketSequence>#</BracketSequence>
+                </Restrictions>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% crawl[//s] inside %TheObject[%object%]%.</Text>
+                <TabLabel>Not Standing</TabLabel>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -3262,7 +3284,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <Actions>
             <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
         </Actions>
-        <LastUpdated>2018-08-02 20:18:27</LastUpdated>
+        <LastUpdated>2019-12-17 13:46:16</LastUpdated>
         <Created>2011-10-11 20:18:27</Created>
     </Task>
     <Task>
@@ -3275,7 +3297,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% sit[//s] down.</Text>
+                <Text>%CharacterName% sit[//s] down</Text>
             </Description>
             <Description>
                 <Restrictions>
@@ -3285,7 +3307,30 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
                     <BracketSequence>#</BracketSequence>
                 </Restrictions>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% sit[//s] up.</Text>
+                <Text>%CharacterName% sit[//s] up</Text>
+                <TabLabel>If Lying</TabLabel>
+            </Description>
+            <Description>
+                <Restrictions>
+                    <Restriction>
+                        <Character>%Player% Must BeInsideObject AnyObject</Character>
+                    </Restriction>
+                    <BracketSequence>#</BracketSequence>
+                </Restrictions>
+                <DisplayWhen>AppendToPreviousDescription</DisplayWhen>
+                <Text> inside %Player%.CharInsideWhat.Name.</Text>
+                <TabLabel>In Object</TabLabel>
+            </Description>
+            <Description>
+                <Restrictions>
+                    <Restriction>
+                        <Character>%Player% MustNot BeInsideObject AnyObject</Character>
+                    </Restriction>
+                    <BracketSequence>#</BracketSequence>
+                </Restrictions>
+                <DisplayWhen>AppendToPreviousDescription</DisplayWhen>
+                <Text>.</Text>
+                <TabLabel>stop</TabLabel>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -3308,7 +3353,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <Actions>
             <SetProperty>%Player% CharacterPosition Sitting</SetProperty>
         </Actions>
-        <LastUpdated>2011-08-07 18:13:33</LastUpdated>
+        <LastUpdated>2019-12-17 13:55:08</LastUpdated>
         <Created>2011-08-07 18:13:33</Created>
     </Task>
     <Task>
@@ -3577,6 +3622,17 @@ This task executes the 'Take objects from others' task, giving it the parent of 
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
                 <Text>%CharacterName% stand[//s] up.</Text>
             </Description>
+            <Description>
+                <Restrictions>
+                    <Restriction>
+                        <Character>%Player% Must BeInsideObject AnyObject</Character>
+                    </Restriction>
+                    <BracketSequence>#</BracketSequence>
+                </Restrictions>
+                <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                <Text>%CharacterName% stand[//s] up inside %Player%.CharInsideWhat.Name.</Text>
+                <TabLabel>Inside Object</TabLabel>
+            </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
         <PreventOverriding>1</PreventOverriding>
@@ -3598,7 +3654,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Actions>
             <SetProperty>%Player% CharacterPosition Standing</SetProperty>
         </Actions>
-        <LastUpdated>2019-12-10 12:14:00</LastUpdated>
+        <LastUpdated>2019-12-17 13:54:48</LastUpdated>
         <Created>2011-08-07 18:14:00</Created>
     </Task>
     <Task>
@@ -7488,7 +7544,18 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                        <Text>%CharacterName% cannot go inside %object%.Name.</Text>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Object>ReferencedObject Must HaveProperty Sittable</Object>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text />
+                        <TabLabel>Redirect to Sit ON Task</TabLabel>
                     </Description>
                 </Message>
             </Restriction>
@@ -7529,7 +7596,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 </Message>
             </Restriction>
             <Restriction>
-                <Property>CharacterPosition %Player% MustNot Sitting</Property>
+                <Property>CharacterPosition %Player% MustNot EqualTo Sitting</Property>
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
@@ -7544,7 +7611,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
             <SetProperty>%Player% CharacterPosition Sitting</SetProperty>
         </Actions>
-        <LastUpdated>2019-12-12 13:55:41</LastUpdated>
+        <LastUpdated>2019-12-17 14:08:56</LastUpdated>
         <Created>2019-12-12 13:55:41</Created>
     </Task>
     <Task>
@@ -7595,7 +7662,18 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                        <Text>%CharacterName% cannot go inside %object%.Name.</Text>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Object>ReferencedObject Must HaveProperty Standable</Object>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text />
+                        <TabLabel>Redirect to Stand On task</TabLabel>
                     </Description>
                 </Message>
             </Restriction>
@@ -7636,7 +7714,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 </Message>
             </Restriction>
             <Restriction>
-                <Property>CharacterPosition %Player% MustNot Standing</Property>
+                <Property>CharacterPosition %Player% MustNot EqualTo Standing</Property>
             </Restriction>
             <BracketSequence>#A#A#A#A(#O#)A#A(#O#)</BracketSequence>
         </Restrictions>
@@ -7645,7 +7723,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
             <SetProperty>%Player% CharacterPosition Standing</SetProperty>
         </Actions>
-        <LastUpdated>2019-12-12 13:56:00</LastUpdated>
+        <LastUpdated>2019-12-17 14:07:10</LastUpdated>
         <Created>2019-12-12 13:56:00</Created>
     </Task>
     <Task>
@@ -7696,7 +7774,18 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>%CharacterName% can't go inside %TheObject[%object%]%!</Text>
+                        <Text>%CharacterName% cannot go inside %object%.Name. </Text>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Object>ReferencedObject Must HaveProperty Lieable</Object>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text />
+                        <TabLabel>Redirect to Lie ON task</TabLabel>
                     </Description>
                 </Message>
             </Restriction>
@@ -7737,7 +7826,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                 </Message>
             </Restriction>
             <Restriction>
-                <Property>CharacterPosition %Player% MustNot Lying</Property>
+                <Property>CharacterPosition %Player% MustNot EqualTo Lying</Property>
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
@@ -7752,7 +7841,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% InsideObject ReferencedObject</MoveCharacter>
             <SetProperty>%Player% CharacterPosition Lying</SetProperty>
         </Actions>
-        <LastUpdated>2019-12-12 13:55:24</LastUpdated>
+        <LastUpdated>2019-12-17 14:05:48</LastUpdated>
         <Created>2019-12-12 13:55:24</Created>
     </Task>
     <Task>
@@ -7897,7 +7986,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
         <Created>2019-12-12 14:35:44</Created>
     </Task>
     <Task>
-        <Key>GoLieOnObjec1</Key>
+        <Key>GoLieOnObject</Key>
         <Priority>50073</Priority>
         <Type>Specific</Type>
         <GeneralTask>GoOntoObject</GeneralTask>
