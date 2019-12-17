@@ -2553,7 +2553,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% stand[//s] on %TheObject[%object%]%.</Text>
+                <Text>%CharacterName% stand[//s] [on/in] %TheObject[%object%]%.</Text>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -2620,7 +2620,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
             <MoveCharacter>Character %Player% ToStandingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:29:51</LastUpdated>
-        <Created>2018-09-14 15:54:01</Created>
+        <Created>2011-08-07 18:14:51</Created>
     </Task>
     <Task>
         <Key>Lie</Key>
@@ -3106,7 +3106,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
         <CompletionMessage>
             <Description>
                 <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                <Text>%CharacterName% sit[//s] on %TheObject[%object%]%.</Text>
+                <Text>%CharacterName% sit[//s] [on/in] %TheObject[%object%]%.</Text>
             </Description>
         </CompletionMessage>
         <Repeatable>1</Repeatable>
@@ -3173,7 +3173,7 @@ This task executes the 'Leave Object' task, giving it the parent of the player a
             <MoveCharacter>Character %Player% ToSittingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:30:10</LastUpdated>
-        <Created>2018-09-14 15:53:23</Created>
+        <Created>2011-08-07 18:13:42</Created>
     </Task>
     <Task>
         <Key>MoveInObject</Key>
@@ -4356,7 +4356,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Priority>50065</Priority>
         <AutoFillPriority>4</AutoFillPriority>
         <Type>General</Type>
-        <Command>[lie/lay] {up/down} on %object%</Command>
+        <Command>[lie/lay] {up/down} [on/in] %object%</Command>
         <Description>Lie On Object</Description>
         <CompletionMessage>
             <Description>
@@ -4428,7 +4428,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
             <MoveCharacter>Character %Player% ToLyingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:30:03</LastUpdated>
-        <Created>2018-09-14 15:54:24</Created>
+        <Created>2011-08-07 18:14:33</Created>
     </Task>
     <Task>
         <Key>CheckExit</Key>
@@ -7545,7 +7545,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <SetProperty>%Player% CharacterPosition Sitting</SetProperty>
         </Actions>
         <LastUpdated>2019-12-12 13:55:41</LastUpdated>
-        <Created>2018-09-14 15:53:23</Created>
+        <Created>2019-12-12 13:55:41</Created>
     </Task>
     <Task>
         <Key>StandInObject</Key>
@@ -7646,7 +7646,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <SetProperty>%Player% CharacterPosition Standing</SetProperty>
         </Actions>
         <LastUpdated>2019-12-12 13:56:00</LastUpdated>
-        <Created>2018-09-14 15:54:01</Created>
+        <Created>2019-12-12 13:56:00</Created>
     </Task>
     <Task>
         <Key>LieInObject</Key>
@@ -7753,7 +7753,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <SetProperty>%Player% CharacterPosition Lying</SetProperty>
         </Actions>
         <LastUpdated>2019-12-12 13:55:24</LastUpdated>
-        <Created>2018-09-14 15:54:24</Created>
+        <Created>2019-12-12 13:55:24</Created>
     </Task>
     <Task>
         <Key>GoOntoObject</Key>
@@ -7810,7 +7810,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <BracketSequence>#A#A#A#</BracketSequence>
         </Restrictions>
         <LastUpdated>2019-12-12 14:36:30</LastUpdated>
-        <Created>2018-09-14 15:54:24</Created>
+        <Created>2019-12-12 14:36:30</Created>
     </Task>
     <Task>
         <Key>GoSitOnObject</Key>
@@ -7852,7 +7852,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% ToSittingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:36:11</LastUpdated>
-        <Created>2018-09-14 15:53:23</Created>
+        <Created>2019-12-12 14:36:11</Created>
     </Task>
     <Task>
         <Key>GoStandOnObject</Key>
@@ -7894,7 +7894,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% ToStandingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:35:44</LastUpdated>
-        <Created>2018-09-14 15:54:01</Created>
+        <Created>2019-12-12 14:35:44</Created>
     </Task>
     <Task>
         <Key>GoLieOnObjec1</Key>
@@ -7936,7 +7936,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character %Player% ToLyingOn ReferencedObject</MoveCharacter>
         </Actions>
         <LastUpdated>2019-12-12 14:36:20</LastUpdated>
-        <Created>2018-09-14 15:54:24</Created>
+        <Created>2019-12-12 14:36:20</Created>
     </Task>
     <Character>
         <Key>Player</Key>
