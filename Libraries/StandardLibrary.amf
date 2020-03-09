@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2020-03-09 09:50:00</LastUpdated>
+    <LastUpdated>2020-03-09 12:06:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -287,6 +287,7 @@
         <Member>CanTakeCha</Member>
         <Member>TakingChar</Member>
         <Member>WhyCharact</Member>
+        <Member>WhyCantGetCha</Member>
         <Height>446</Height>
         <Width>306</Width>
         <X>512</X>
