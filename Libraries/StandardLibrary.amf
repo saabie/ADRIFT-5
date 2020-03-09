@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2020-03-09 12:06:00</LastUpdated>
+    <LastUpdated>2020-03-09 15:42:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -283,9 +283,9 @@
         <Member>TakeFromCh</Member>
         <Member>TakeFromCh1</Member>
         <Member>TakeChar</Member>
+        <Member>TakingChar</Member>
         <Member>WhenGetCha</Member>
         <Member>CanTakeCha</Member>
-        <Member>TakingChar</Member>
         <Member>WhyCharact</Member>
         <Member>WhyCantGetCha</Member>
         <Height>446</Height>
@@ -7502,6 +7502,50 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
                         <Text>%character%.WhyCharact</Text>
                     </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Property>WhyCantGetCha ReferencedCharacter Must EqualTo Wont_Allow</Property>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%character%.Name does not want %CharacterName[objective]% to pick %character%.Name(Objective,Force) up at the moment.</Text>
+                        <TabLabel>Wont Allow</TabLabel>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Property>WhyCantGetCha ReferencedCharacter Must EqualTo Too_Heavy</Property>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%character%.Name is too heavy for %CharacterName% to lift!</Text>
+                        <TabLabel>Too Heavy</TabLabel>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Property>WhyCantGetCha ReferencedCharacter Must EqualTo Attached</Property>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%character%.Name is securely attached to &lt;#IF(%character%.Parent=%Player%.CharacterAtLocation,"the ground",%character%.Parent.Name)#&gt;!</Text>
+                        <TabLabel>Attached</TabLabel>
+                    </Description>
+                    <Description>
+                        <Restrictions>
+                            <Restriction>
+                                <Property>WhyCantGetCha ReferencedCharacter Must EqualTo Too_Slippery</Property>
+                            </Restriction>
+                            <BracketSequence>#</BracketSequence>
+                        </Restrictions>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%character%.Name is too slippery to get hold of!</Text>
+                        <TabLabel>Too Slippery</TabLabel>
+                    </Description>
                 </Message>
             </Restriction>
             <BracketSequence>#A#A#</BracketSequence>
@@ -7510,7 +7554,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
             <MoveCharacter>Character ReferencedCharacter OntoCharacter %Player%</MoveCharacter>
             <SetProperty>ReferencedCharacter CharacterPosition Sitting</SetProperty>
         </Actions>
-        <LastUpdated>2019-11-20 14:53:45</LastUpdated>
+        <LastUpdated>2020-03-09 15:06:55</LastUpdated>
         <Created>2019-11-20 14:53:45</Created>
     </Task>
     <Task>
