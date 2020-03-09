@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2019-12-17 14:49:34</LastUpdated>
+    <LastUpdated>2020-03-08 09:50:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -1250,6 +1250,22 @@
         <Created>2018-09-23 15:17:41</Created>
     </Property>
     <Property>
+        <Key>CanTakeCha</Key>
+        <Description>Player can pick-up this character</Description>
+        <PropertyOf>Characters</PropertyOf>
+        <Type>StateList</Type>
+        <State>Not_Now</State>
+        <State>Held_In_Arms</State>
+        <State>On_Shoulders</State>
+        <State>PiggyBack</State>
+        <State>Sit_On_Shoulder</State>
+        <State>Sit_On_Head</State>
+        <State>Display_This</State>
+        <Tooltip>The character allows themselves to be picked-up.</Tooltip>
+        <LastUpdated>2019-11-20 14:52:28</LastUpdated>
+        <Created>2019-11-20 14:52:28</Created>
+    </Property>
+    <Property>
         <Key>WhenGetCha</Key>
         <Description>When player picks-up character, display this</Description>
         <Mandatory>1</Mandatory>
@@ -1257,36 +1273,36 @@
         <Type>Text</Type>
         <DependentKey>CanTakeCha</DependentKey>
         <DependentValue>Display_This</DependentValue>
-        <LastUpdated>2018-09-23 18:05:44</LastUpdated>
-        <Created>2018-09-23 18:05:44</Created>
-    </Property>
-    <Property>
-        <Key>CanTakeCha</Key>
-        <Description>Player can pick-up this character</Description>
-        <PropertyOf>Characters</PropertyOf>
-        <Type>StateList</Type>
-        <State>Held_In_Arms</State>
-        <State>On_Shoulders</State>
-        <State>PiggyBack</State>
-        <State>Sit_On_Shoulder</State>
-        <State>Sit_On_Head</State>
-        <State>Display_This</State>
-        <State>Not_Now</State>
-        <Tooltip>The character allows themselves to be picked-up.</Tooltip>
         <LastUpdated>2019-11-20 14:52:28</LastUpdated>
         <Created>2019-11-20 14:52:28</Created>
     </Property>
     <Property>
-        <Key>WhyCharact</Key>
+        <Key>WhyCantGetCha</Key>
         <Description>Why character can't be picked up</Description>
+        <Mandatory>1</Mandatory>
+        <PropertyOf>Characters</PropertyOf>
+        <Type>StateList</Type>
+	<State>Wont_Allow</State>
+	<State>Too_Heavy</State>
+	<State>Attached</State>
+	<State>Too_Slippery</State>
+        <State>Display_Text</State>
+        <DependentKey>CanTakeCha</DependentKey>
+        <DependentValue>Not_Now</DependentValue>
+        <LastUpdated>2020-03-07 14:52:28</LastUpdated>
+        <Created>2020-03-07 14:52:28</Created>
+    </Property>
+    <Property>
+        <Key>WhyCharact</Key>
+        <Description>When player can't pick-up character, display this</Description>
         <Mandatory>1</Mandatory>
         <PropertyOf>Characters</PropertyOf>
         <Type>Text</Type>
         <Tooltip>A specific reason I can't be picked-up (at the moment)</Tooltip>
-        <DependentKey>CanTakeCha</DependentKey>
-        <DependentValue>Not_Now</DependentValue>
-        <LastUpdated>2019-11-18 17:07:28</LastUpdated>
-        <Created>2019-11-18 17:07:28</Created>
+        <DependentKey>WhyCantGetCha</DependentKey>
+        <DependentValue>Display_Text</DependentValue>
+        <LastUpdated>2020-03-07 14:52:28</LastUpdated>
+        <Created>2019-11-20 14:52:28</Created>
     </Property>
     <Task>
         <Key>PutObjectsOnOthers</Key>
@@ -1399,7 +1415,7 @@
                 <Message>
                     <Description>
                         <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>%objects%.Name can't fit on top of %object2%.Name unless you clear sufficient space for it, or put it on or in something already on the desk.</Text>
+                        <Text>%objects%.Name can't fit on top of %object2%.Name unless you clear sufficient space for it, or put it on or in something already on %object2%.Name.</Text>
                     </Description>
                 </Message>
             </Restriction>
@@ -1408,7 +1424,7 @@
         <Actions>
             <MoveObject>Object ReferencedObjects OntoObject ReferencedObject2</MoveObject>
         </Actions>
-        <LastUpdated>2018-09-30 11:06:51</LastUpdated>
+        <LastUpdated>2020-03-08 11:02:00</LastUpdated>
         <Created>2015-10-29 23:10:49</Created>
     </Task>
     <Task>
@@ -3516,7 +3532,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>say %text% to %character%</Command>
-        <Command>say {to} %character%[, /: /; /"/']%text%{"/'}</Command>
+        <Command>say to %character%[, /: /; /"/']%text%{"/'}</Command>
         <Description>Say something to character</Description>
         <Repeatable>1</Repeatable>
         <Restrictions>
