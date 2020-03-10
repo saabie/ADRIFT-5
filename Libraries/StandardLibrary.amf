@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
-    <Version>5.000036</Version>
-    <LastUpdated>2020-03-09 15:42:00</LastUpdated>
+    <Version>5.0000353</Version>
+    <LastUpdated>2020-03-10 14:06:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -293,7 +293,7 @@
         <X>512</X>
         <Y>71</Y>
         <ShowPriority>1</ShowPriority>
-        <LastUpdated>2019-11-25 13:23:51</LastUpdated>
+        <LastUpdated>2020-03-10 14:00:00</LastUpdated>
         <Created>2010-10-07 22:22:51</Created>
     </Folder>
     <Folder>
@@ -2297,6 +2297,24 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <Repeatable>1</Repeatable>
         <Restrictions>
             <Restriction>
+                <Character>%Player% Must HaveSeenCharacter ReferencedCharacter</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>Sorry, I'm not sure which character you are referring to.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
+                <Character>%Player% Must BeVisibleToCharacter ReferencedCharacter</Character>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% can't see %character%.Name!</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
                 <Object>ReferencedObjects Must Exist </Object>
                 <Message>
                     <Description>
@@ -2324,24 +2342,6 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
                 </Message>
             </Restriction>
             <Restriction>
-                <Character>%Player% Must HaveSeenCharacter ReferencedCharacter</Character>
-                <Message>
-                    <Description>
-                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>Sorry, I'm not sure which character you are referring to.</Text>
-                    </Description>
-                </Message>
-            </Restriction>
-            <Restriction>
-                <Character>%Player% Must BeVisibleToCharacter ReferencedCharacter</Character>
-                <Message>
-                    <Description>
-                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
-                        <Text>%CharacterName% can't see %character%.Name!</Text>
-                    </Description>
-                </Message>
-            </Restriction>
-            <Restriction>
                 <Object>ReferencedObjects Must BePartOfCharacter ReferencedCharacter</Object>
             </Restriction>
             <Restriction>
@@ -2361,7 +2361,7 @@ This task executes the 'Stand On Objects' task, giving it the parent of the play
         <Actions>
             <SetTasks>Execute ExamineObjects (%objects%)</SetTasks>
         </Actions>
-        <LastUpdated>2019-11-18 16:08:11</LastUpdated>
+        <LastUpdated>2020-03-10 14:00:00</LastUpdated>
         <Created>2019-11-18 16:08:11</Created>
     </Task>
     <Task>
