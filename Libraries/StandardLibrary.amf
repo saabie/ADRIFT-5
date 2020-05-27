@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
-    <Version>5.0000353</Version>
-    <LastUpdated>2020-03-10 14:06:00</LastUpdated>
+    <Version>5.000036</Version>
+    <LastUpdated>2020-05-27 17:00:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -1361,6 +1361,15 @@
                 </Message>
             </Restriction>
             <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% cannot see %objects%.Name.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
                 <Object>ReferencedObject2 Must BeVisibleToCharacter %Player%</Object>
                 <Message>
                     <Description>
@@ -1420,13 +1429,22 @@
                     </Description>
                 </Message>
             </Restriction>
-            <BracketSequence>#A#A#A#A#A#A#A(#O(#A#]</BracketSequence>
+            <Restriction>
+                <Object>ReferencedObjects MustNot BeOnObject ReferencedObject2</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%objects%.Name is already on %object2%.Name.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A#A#A#A#A(#O(#A#]A#</BracketSequence>
         </Restrictions>
         <Actions>
             <MoveObject>Object ReferencedObjects OntoObject ReferencedObject2</MoveObject>
         </Actions>
-        <LastUpdated>2020-03-08 11:02:00</LastUpdated>
-        <Created>2015-10-29 23:10:49</Created>
+        <LastUpdated>2020-05-27 14:06:42</LastUpdated>
+        <Created>2020-03-08 11:02:00</Created>
     </Task>
     <Task>
         <Key>LieOnFloor</Key>
@@ -2801,12 +2819,24 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
             <Restriction>
                 <Object>ReferencedObjects MustNot BeExactText All</Object>
             </Restriction>
-            <BracketSequence>#O(#A(#O#]A#</BracketSequence>
+            <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObject2 Must BeVisibleToCharacter %Player%</Object>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects MustNot BeInsideObject ReferencedObject2</Object>
+            </Restriction>
+            <Restriction>
+                <Object>ReferencedObjects MustNot BeOnObject ReferencedObject2</Object>
+            </Restriction>
+            <BracketSequence>#O(#A(#O#]A#A#A#A#A#</BracketSequence>
         </Restrictions>
         <Actions>
             <MoveObject>Object ReferencedObjects ToCarriedBy %Player%</MoveObject>
         </Actions>
-        <LastUpdated>2018-09-02 14:32:06</LastUpdated>
+        <LastUpdated>2020-05-27 14:02:43</LastUpdated>
         <Created>2018-09-02 14:32:06</Created>
     </Task>
     <Task>
@@ -3896,6 +3926,15 @@ This task executes the 'Take objects from others' task, giving it the parent of 
                 </Message>
             </Restriction>
             <Restriction>
+                <Object>ReferencedObjects Must BeVisibleToCharacter %Player%</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%CharacterName% cannot see %objects%.Name.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <Restriction>
                 <Object>ReferencedObject2 Must Exist </Object>
                 <Message>
                     <Description>
@@ -4002,13 +4041,22 @@ This task executes the 'Take objects from others' task, giving it the parent of 
                     </Description>
                 </Message>
             </Restriction>
-            <BracketSequence>#A#A#A#A#A(#O#)A#A#A#A#A(#O#A#)</BracketSequence>
+            <Restriction>
+                <Object>ReferencedObjects MustNot BeInsideObject ReferencedObject2</Object>
+                <Message>
+                    <Description>
+                        <DisplayWhen>StartDescriptionWithThis</DisplayWhen>
+                        <Text>%objects%.Name is already inside %object2%.Name.</Text>
+                    </Description>
+                </Message>
+            </Restriction>
+            <BracketSequence>#A#A#A#A#A#A(#O#)A#A#A#A#A(#O#A#)A#</BracketSequence>
         </Restrictions>
         <Actions>
             <MoveObject>Object ReferencedObjects InsideObject ReferencedObject2</MoveObject>
         </Actions>
-        <LastUpdated>2018-09-17 23:47:21</LastUpdated>
-        <Created>2013-08-26 11:58:00</Created>
+        <LastUpdated>2020-05-27 14:05:40</LastUpdated>
+        <Created>2018-09-17 23:47:21</Created>
     </Task>
     <Task>
         <Key>Look</Key>
