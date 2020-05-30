@@ -1307,7 +1307,7 @@
     </Property>
     <Task>
         <Key>PutObjectsOnOthers</Key>
-        <Priority>49998</Priority>
+        <Priority>50017</Priority>
         <AutoFillPriority>3</AutoFillPriority>
         <Type>General</Type>
         <Command>put %objects% on{to} {{the} top of} %object2%</Command>
@@ -1443,7 +1443,7 @@
         <Actions>
             <MoveObject>Object ReferencedObjects OntoObject ReferencedObject2</MoveObject>
         </Actions>
-        <LastUpdated>2020-05-27 14:06:42</LastUpdated>
+        <LastUpdated>2020-05-28 14:06:42</LastUpdated>
         <Created>2020-03-08 11:02:00</Created>
     </Task>
     <Task>
@@ -2787,7 +2787,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>RemoveBeforePut</Key>
-        <Priority>50017</Priority>
+        <Priority>49998</Priority>
         <AutoFillPriority>1</AutoFillPriority>
         <Type>General</Type>
         <Command>put %objects% on{to} {{the} top of} %object2%</Command>
@@ -2836,7 +2836,7 @@ This task executes the 'Lie On Objects' task, giving it the parent of the player
         <Actions>
             <MoveObject>Object ReferencedObjects ToCarriedBy %Player%</MoveObject>
         </Actions>
-        <LastUpdated>2020-05-27 14:02:43</LastUpdated>
+        <LastUpdated>2020-05-28 14:02:43</LastUpdated>
         <Created>2018-09-02 14:32:06</Created>
     </Task>
     <Task>
