@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2020-05-27 17:00:00</LastUpdated>
+    <LastUpdated>2020-09-04 16:52:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -3461,7 +3461,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
     </Task>
     <Task>
         <Key>AskCharacter</Key>
-        <Priority>50019</Priority>
+        <Priority>50018</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>ask %character% {about} %text%</Command>
@@ -3491,7 +3491,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
         <Actions>
             <Conversation>Ask ReferencedCharacter About '%text%'</Conversation>
         </Actions>
-        <LastUpdated>2019-11-25 17:05:42</LastUpdated>
+        <LastUpdated>2020-09-04 16:50:42</LastUpdated>
         <Created>2011-06-04 17:05:42</Created>
     </Task>
     <Task>
@@ -3845,7 +3845,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
                     <BracketSequence>#A(#O#)A#</BracketSequence>
                 </Restrictions>
                 <DisplayWhen>AppendToPreviousDescription</DisplayWhen>
-                <Text>Inside %object%.Name is %object%.Contents.List(False).</Text>
+                <Text>Inside %object%.Name is %object%.Contents.List(Indefinite,False).</Text>
                 <TabLabel>Open</TabLabel>
             </Description>
             <Description>
@@ -3859,7 +3859,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
                     <BracketSequence>#A#</BracketSequence>
                 </Restrictions>
                 <DisplayWhen>AppendToPreviousDescription</DisplayWhen>
-                <Text>On top of %object%.Name is %object%.Children(Objects, On).List(False).</Text>
+                <Text>On top of %object%.Name is %object%.Children(Objects, On).List(Indefinite,False).</Text>
                 <TabLabel>On</TabLabel>
             </Description>
         </CompletionMessage>
@@ -3870,7 +3870,7 @@ This task executes the 'Take objects from others' task, giving it the parent of 
             </Restriction>
             <BracketSequence>#</BracketSequence>
         </Restrictions>
-        <LastUpdated>2018-09-17 16:32:39</LastUpdated>
+        <LastUpdated>2020-09-04 16:50:39</LastUpdated>
         <Created>2012-10-12 17:53:02</Created>
         <Aggregate>0</Aggregate>
     </Task>
@@ -4694,7 +4694,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>TellCharacter</Key>
-        <Priority>50021</Priority>
+        <Priority>50000</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>tell %character% {about} %text%</Command>
@@ -4724,7 +4724,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Actions>
             <Conversation>Tell ReferencedCharacter About '%text%'</Conversation>
         </Actions>
-        <LastUpdated>2019-11-25 17:05:55</LastUpdated>
+        <LastUpdated>2020-09-04 16:50:55</LastUpdated>
         <Created>2011-06-04 17:05:55</Created>
     </Task>
     <Task>
@@ -4756,7 +4756,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
     </Task>
     <Task>
         <Key>TellLazy</Key>
-        <Priority>50000</Priority>
+        <Priority>50021</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>tell {about} %text%</Command>
@@ -4814,7 +4814,7 @@ This task runs the Tell Something to Character task, passing %AloneWithChar% key
         <Actions>
             <SetTasks>Execute TellCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2019-11-25 11:57:55</LastUpdated>
+        <LastUpdated>2020-09-04 16:50:55</LastUpdated>
         <Created>2019-11-25 11:57:55</Created>
     </Task>
     <Task>
@@ -5322,7 +5322,7 @@ This task runs the Say Something to Character task, passing %AloneWithChar% key 
     </Task>
     <Task>
         <Key>AskAboutLazy</Key>
-        <Priority>50018</Priority>
+        <Priority>50019</Priority>
         <Type>General</Type>
         <Command>ask {about} %text%</Command>
         <Description>Ask about (lazy)</Description>
@@ -5378,7 +5378,7 @@ This task runs the Ask Character About Subject task, passing %AloneWithChar% key
         <Actions>
             <SetTasks>Execute AskCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2019-11-25 11:36:06</LastUpdated>
+        <LastUpdated>2020-09-04 16:50:06</LastUpdated>
         <Created>2011-08-10 11:25:35</Created>
     </Task>
     <Task>
