@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Adventure>
     <Version>5.000036</Version>
-    <LastUpdated>2020-09-04 16:52:00</LastUpdated>
+    <LastUpdated>2020-09-04 20:31:00</LastUpdated>
     <Title>ADRIFT Standard Library</Title>
     <Author>Campbell Wild</Author>
     <Description>The ADRIFT Standard Library contains the most common tasks and properties required in order to make a text adventure, such as player movement, taking and dropping objects, and interacting with characters.</Description>
@@ -4698,6 +4698,7 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>tell %character% {about} %text%</Command>
+	<Command>%character%{,} %text%</Command>
         <Description>Tell character about subject</Description>
         <Repeatable>1</Repeatable>
         <Restrictions>
@@ -4724,12 +4725,12 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Actions>
             <Conversation>Tell ReferencedCharacter About '%text%'</Conversation>
         </Actions>
-        <LastUpdated>2020-09-04 16:50:55</LastUpdated>
+        <LastUpdated>2020-09-04 20:30:55</LastUpdated>
         <Created>2011-06-04 17:05:55</Created>
     </Task>
     <Task>
         <Key>Tell</Key>
-        <Priority>50001</Priority>
+        <Priority>50021</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>tell {about} %text%</Command>
@@ -4751,12 +4752,12 @@ This task executes the 'Sit On Objects' task, giving it the parent of the player
         <Actions>
             <SetTasks>Execute TellCharacter (%convcharacter%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2019-11-25 11:54:29</LastUpdated>
+        <LastUpdated>2020-09-04 20:30:29</LastUpdated>
         <Created>2019-11-25 11:54:29</Created>
     </Task>
     <Task>
         <Key>TellLazy</Key>
-        <Priority>50021</Priority>
+        <Priority>50001</Priority>
         <AutoFillPriority>2</AutoFillPriority>
         <Type>General</Type>
         <Command>tell {about} %text%</Command>
@@ -4814,7 +4815,7 @@ This task runs the Tell Something to Character task, passing %AloneWithChar% key
         <Actions>
             <SetTasks>Execute TellCharacter (%AloneWithChar%|%text%)</SetTasks>
         </Actions>
-        <LastUpdated>2020-09-04 16:50:55</LastUpdated>
+        <LastUpdated>2020-09-04 20:30:55</LastUpdated>
         <Created>2019-11-25 11:57:55</Created>
     </Task>
     <Task>
